@@ -1,0 +1,10 @@
+syntax = "proto3";
+package test;
+
+message TestRequest {
+  int64 input = 1;
+}
+
+message TestResponse {
+  int64 output = 1;
+}
