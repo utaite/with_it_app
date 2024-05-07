@@ -1,5 +1,6 @@
 plugins {
     id "com.android.application"
+    id "com.google.gms.google-services"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
 }
@@ -23,9 +24,9 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.with.it.app"
-    compileSdk flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    namespace "com.withit.app"
+    compileSdk 34
+    ndkVersion "26.2.11394342"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,11 +42,12 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.with.it.app"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        applicationId "com.withit.app"
+        minSdk 21
+        targetSdk 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -53,10 +55,22 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    dexOptions {
+        preDexLibraries true
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+}

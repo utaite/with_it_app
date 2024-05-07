@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:table_calendar/table_calendar.dart';
 import 'package:with_it/model/model.dart';
-import 'package:with_it/module/module.dart';
 import 'package:with_it/ui/main/fragment/planner/main_planner_bloc.dart';
 import 'package:with_it/ui/main/fragment/planner/main_planner_controller.dart';
 import 'package:with_it/ui/main/fragment/planner/state/main_planner_state.dart';
@@ -36,19 +36,11 @@ final class MainPlannerFragment extends StatelessWidget {
           appBar: PlatformAppBar(
             title: Text(RouteModel.mainPlanner().title),
           ),
-          body: CustomScrollView(
-            slivers: [
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  UI.spacer,
-                  Center(
-                    child: Text('Hello, MainPlannerFragment!'),
-                  ),
-                  UI.spacer,
-                ],
-              ).sliverFill,
-            ],
+          body:
+          TableCalendar(
+            focusedDay: DateTime.now(),
+            firstDay: DateTime(2024),
+            lastDay: DateTime(2025),
           ),
         ),
       ),

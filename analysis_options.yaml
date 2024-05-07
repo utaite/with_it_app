@@ -1,15 +1,748 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
-  exclude: [ lib/messages/** ]
+  errors:
+    # Diagnostic messages
+    abi_specific_integer_invalid: error
+    abi_specific_integer_mapping_extra: error
+    abi_specific_integer_mapping_missing: error
+    abi_specific_integer_mapping_unsupported: error
+    abstract_field_initializer: error
+    abstract_sealed_class: error
+    abstract_super_member_reference: error
+    ambiguous_export: error
+    ambiguous_extension_member_access: error
+    ambiguous_import: error
+    ambiguous_set_or_map_literal_both: error
+    ambiguous_set_or_map_literal_either: error
+    annotation_on_pointer_field: error
+    argument_must_be_a_constant: error
+    argument_type_not_assignable: error
+    argument_type_not_assignable_to_error_handler: error
+    assert_in_redirecting_constructor: error
+    asset_directory_does_not_exist: error
+    asset_does_not_exist: error
+    asset_field_not_list: error
+    asset_missing_path: error
+    asset_not_string: error
+    asset_not_string_or_map: error
+    asset_path_not_string: error
+    assignment_of_do_not_store: error
+    assignment_to_const: error
+    assignment_to_final: error
+    assignment_to_final_local: error
+    assignment_to_final_no_setter: error
+    assignment_to_function: error
+    assignment_to_method: error
+    assignment_to_type: error
+    async_for_in_wrong_context: error
+    await_in_late_local_variable_initializer: error
+    await_of_incompatible_type: error
+    body_might_complete_normally: error
+    body_might_complete_normally_catch_error: error
+    body_might_complete_normally_nullable: error
+    break_label_on_switch_member: error
+    built_in_identifier_as_type: error
+    built_in_identifier_in_declaration: error
+    case_block_not_terminated: error
+    case_expression_type_implements_equals: error
+    case_expression_type_is_not_switch_expression_subtype: error
+    cast_from_nullable_always_fails: error
+    cast_from_null_always_fails: error
+    cast_to_non_type: error
+    class_used_as_mixin: error
+    collection_element_from_deferred_library: error
+    compound_implements_finalizable: error
+    concrete_class_has_enum_superinterface: error
+    concrete_class_with_abstract_member: error
+    conflicting_constructor_and_static_member: error
+    conflicting_generic_interfaces: error
+    conflicting_type_variable_and_container: error
+    conflicting_type_variable_and_member: error
+    constant_pattern_never_matches_value_type: error
+    constant_pattern_with_non_constant_expression: error
+    const_constructor_param_type_mismatch: error
+    const_constructor_with_field_initialized_by_non_const: error
+    const_constructor_with_non_const_super: error
+    const_constructor_with_non_final_field: error
+    const_deferred_class: error
+    const_initialized_with_non_constant_value: error
+    const_initialized_with_non_constant_value_from_deferred_library: error
+    const_instance_field: error
+    const_map_key_not_primitive_equality: error
+    const_not_initialized: error
+    const_set_element_not_primitive_equality: error
+    const_spread_expected_list_or_set: error
+    const_spread_expected_map: error
+    const_with_non_const: error
+    const_with_non_constant_argument: error
+    const_with_type_parameters: error
+    continue_label_invalid: error
+    creation_of_struct_or_union: error
+    creation_with_non_type: error
+    dead_code: error
+    dead_code_catch_following_catch: error
+    dead_code_on_catch_subtype: error
+    dead_null_aware_expression: error
+    default_value_in_function_type: error
+    default_value_in_redirecting_factory_constructor: error
+    default_value_on_required_parameter: error
+    deferred_import_of_extension: error
+    definitely_unassigned_late_local_variable: error
+    dependencies_field_not_map: error
+    deprecated_colon_for_default_value: error
+    deprecated_export_use: error
+    deprecated_field: error
+    deprecated_member_use: error
+    deprecated_new_in_comment_reference: error
+    deprecated_subtype_of_function: error
+    disallowed_type_instantiation_expression: error
+    division_optimization: error
+    duplicate_constructor: error
+    duplicate_definition: error
+    duplicate_export: error
+    duplicate_field_formal_parameter: error
+    duplicate_field_name: error
+    duplicate_hidden_name: error
+    duplicate_ignore: error
+    duplicate_import: error
+    duplicate_named_argument: error
+    duplicate_part: error
+    duplicate_pattern_assignment_variable: error
+    duplicate_pattern_field: error
+    duplicate_rest_element_in_pattern: error
+    duplicate_shown_name: error
+    duplicate_variable_pattern: error
+    empty_map_pattern: error
+    empty_record_literal_with_comma: error
+    empty_record_type_named_fields_list: error
+    empty_record_type_with_comma: error
+    empty_struct: error
+    enum_constant_same_name_as_enclosing: error
+    enum_mixin_with_instance_variable: error
+    enum_with_abstract_member: error
+    enum_with_name_values: error
+    equal_elements_in_const_set: error
+    equal_elements_in_set: error
+    equal_keys_in_const_map: error
+    equal_keys_in_map: error
+    equal_keys_in_map_pattern: error
+    expected_one_list_pattern_type_arguments: error
+    expected_one_list_type_arguments: error
+    expected_one_set_type_arguments: error
+    expected_two_map_pattern_type_arguments: error
+    expected_two_map_type_arguments: error
+    export_internal_library: error
+    export_legacy_symbol: error
+    export_of_non_library: error
+    expression_in_map: error
+    extends_non_class: error
+    extension_as_expression: error
+    extension_conflicting_static_and_instance: error
+    extension_declares_abstract_member: error
+    extension_declares_constructor: error
+    extension_declares_instance_field: error
+    extension_declares_member_of_object: error
+    extension_override_access_to_static_member: error
+    extension_override_argument_not_assignable: error
+    extension_override_without_access: error
+    extension_override_with_cascade: error
+    extension_type_constructor_with_super_formal_parameter: error
+    extension_type_constructor_with_super_invocation: error
+    extension_type_declares_instance_field: error
+    extension_type_declares_member_of_object: error
+    extension_type_implements_disallowed_type: error
+    extension_type_implements_itself: error
+    extension_type_implements_not_supertype: error
+    extension_type_implements_representation_not_supertype: error
+    extension_type_inherited_member_conflict: error
+    extension_type_representation_depends_on_itself: error
+    extension_type_representation_type_bottom: error
+    extension_type_with_abstract_member: error
+    external_with_initializer: error
+    extra_annotation_on_struct_field: error
+    extra_positional_arguments: error
+    extra_positional_arguments_could_be_named: error
+    extra_size_annotation_carray: error
+    field_initialized_by_multiple_initializers: error
+    field_initialized_in_initializer_and_declaration: error
+    field_initialized_in_parameter_and_initializer: error
+    field_initializer_factory_constructor: error
+    field_initializer_in_struct: error
+    field_initializer_not_assignable: error
+    field_initializer_outside_constructor: error
+    field_initializer_redirecting_constructor: error
+    field_initializing_formal_not_assignable: error
+    field_in_struct_with_initializer: error
+    field_must_be_external_in_struct: error
+    final_initialized_in_declaration_and_constructor: error
+    final_not_initialized: error
+    final_not_initialized_constructor: error
+    flutter_field_not_map: error
+    for_in_of_invalid_element_type: error
+    for_in_of_invalid_type: error
+    for_in_with_const_variable: error
+    generic_method_type_instantiation_on_dynamic: error
+    generic_struct_subclass: error
+    getter_not_subtype_setter_types: error
+    illegal_async_generator_return_type: error
+    illegal_async_return_type: error
+    illegal_concrete_enum_member: error
+    illegal_enum_values: error
+    illegal_sync_generator_return_type: error
+    implements_non_class: error
+    implements_repeated: error
+    implements_super_class: error
+    implicit_super_initializer_missing_arguments: error
+    implicit_this_reference_in_initializer: error
+    import_deferred_library_with_load_function: error
+    import_internal_library: error
+    import_of_legacy_library_into_null_safe: error
+    import_of_non_library: error
+    inconsistent_inheritance: error
+    inconsistent_language_version_override: error
+    inconsistent_pattern_variable_logical_or: error
+    initializer_for_non_existent_field: error
+    initializer_for_static_field: error
+    initializing_formal_for_non_existent_field: error
+    instance_access_to_static_member: error
+    instance_member_access_from_factory: error
+    instance_member_access_from_static: error
+    instantiate_abstract_class: error
+    instantiate_enum: error
+    instantiate_type_alias_expands_to_type_parameter: error
+    integer_literal_imprecise_as_double: error
+    integer_literal_out_of_range: error
+    invalid_annotation: error
+    invalid_annotation_constant_value_from_deferred_library: error
+    invalid_annotation_from_deferred_library: error
+    invalid_annotation_target: error
+    invalid_assignment: error
+    invalid_dependency: error
+    invalid_exception_value: error
+    invalid_export_of_internal_element: error
+    invalid_export_of_internal_element_indirectly: error
+    invalid_extension_argument_count: error
+    invalid_factory_method_decl: error
+    invalid_factory_method_impl: error
+    invalid_factory_name_not_a_class: error
+    invalid_field_name: error
+    invalid_field_type_in_struct: error
+    invalid_implementation_override: error
+    invalid_inline_function_type: error
+    invalid_internal_annotation: error
+    invalid_language_version_override: error
+    invalid_literal_annotation: error
+    invalid_modifier_on_constructor: error
+    invalid_modifier_on_setter: error
+    invalid_non_virtual_annotation: error
+    invalid_null_aware_operator: error
+    invalid_override: error
+    invalid_override_of_non_virtual_member: error
+    invalid_pattern_variable_in_shared_case_scope: error
+    invalid_platforms_field: error
+    invalid_reference_to_generative_enum_constructor: error
+    invalid_reference_to_this: error
+    invalid_return_type_for_catch_error: error
+    invalid_sealed_annotation: error
+    invalid_super_formal_parameter_location: error
+    invalid_type_argument_in_const_literal: error
+    invalid_uri: error
+    invalid_use_of_covariant_in_extension: error
+    invalid_use_of_internal_member: error
+    invalid_use_of_null_value: error
+    invalid_use_of_type_outside_library: error
+    invalid_use_of_visible_for_overriding_member: error
+    invalid_use_of_visible_for_testing_member: error
+    invalid_visibility_annotation: error
+    invalid_visible_for_overriding_annotation: error
+    invalid_visible_outside_template_annotation: error
+    invocation_of_extension_without_call: error
+    invocation_of_non_function: error
+    invocation_of_non_function_expression: error
+    label_in_outer_scope: error
+    label_undefined: error
+    late_final_field_with_const_constructor: error
+    late_final_local_already_assigned: error
+    leaf_call_must_not_return_handle: error
+    leaf_call_must_not_take_handle: error
+    list_element_type_not_assignable: error
+    main_first_positional_parameter_type: error
+    main_has_required_named_parameters: error
+    main_has_too_many_required_positional_parameters: error
+    main_is_not_function: error
+    map_entry_not_in_map: error
+    map_key_type_not_assignable: error
+    map_value_type_not_assignable: error
+    mismatched_annotation_on_struct_field: error
+    missing_annotation_on_struct_field: error
+    missing_dart_library: error
+    missing_default_value_for_parameter: error
+    missing_dependency: error
+    missing_enum_constant_in_switch: error
+    missing_exception_value: error
+    missing_field_type_in_struct: error
+    missing_name: error
+    missing_named_pattern_field_name: error
+    missing_override_of_must_be_overridden: error
+    missing_required_argument: error
+    missing_required_param: error
+    missing_return: error
+    missing_size_annotation_carray: error
+    missing_variable_pattern: error
+    mixin_application_concrete_super_invoked_member_type: error
+    mixin_application_not_implemented_interface: error
+    mixin_application_no_concrete_super_invoked_member: error
+    mixin_class_declaration_extends_not_object: error
+    mixin_class_declares_constructor: error
+    mixin_inherits_from_not_object: error
+    mixin_instantiate: error
+    mixin_of_non_class: error
+    mixin_on_sealed_class: error
+    mixin_super_class_constraint_deferred_class: error
+    mixin_super_class_constraint_non_interface: error
+    multiple_redirecting_constructor_invocations: error
+    multiple_super_initializers: error
+    must_be_a_native_function_type: error
+    must_be_a_subtype: error
+    must_be_immutable: error
+    must_call_super: error
+    must_return_void: error
+    name_not_string: error
+    native_field_invalid_type: error
+    native_field_missing_type: error
+    native_field_not_static: error
+    new_with_undefined_constructor_default: error
+    non_abstract_class_inherits_abstract_member: error
+    non_bool_condition: error
+    non_bool_expression: error
+    non_bool_negation_expression: error
+    non_bool_operand: error
+    non_constant_annotation_constructor: error
+    non_constant_case_expression: error
+    non_constant_case_expression_from_deferred_library: error
+    non_constant_default_value: error
+    non_constant_default_value_from_deferred_library: error
+    non_constant_list_element: error
+    non_constant_map_element: error
+    non_constant_map_key: error
+    non_constant_map_pattern_key: error
+    non_constant_map_value: error
+    non_constant_relational_pattern_expression: error
+    non_constant_set_element: error
+    non_constant_type_argument: error
+    non_const_call_to_literal_constructor: error
+    non_const_generative_enum_constructor: error
+    non_covariant_type_parameter_position_in_representation_type: error
+    non_exhaustive_switch_expression: error
+    non_exhaustive_switch_statement: error
+    non_final_field_in_enum: error
+    non_generative_constructor: error
+    non_generative_implicit_constructor: error
+    non_native_function_type_argument_to_pointer: error
+    non_positive_array_dimension: error
+    non_sized_type_argument: error
+    non_sync_factory: error
+    non_type_as_type_argument: error
+    non_type_in_catch_clause: error
+    non_void_return_for_operator: error
+    non_void_return_for_setter: error
+    not_assigned_potentially_non_nullable_local_variable: error
+    not_a_type: error
+    not_binary_operator: error
+    not_enough_positional_arguments: error
+    not_initialized_non_nullable_instance_field: error
+    not_initialized_non_nullable_variable: error
+    not_iterable_spread: error
+    not_map_spread: error
+    no_annotation_constructor_arguments: error
+    no_combined_super_signature: error
+    no_generative_constructors_in_superclass: error
+    nullable_type_in_catch_clause: error
+    nullable_type_in_extends_clause: error
+    nullable_type_in_implements_clause: error
+    nullable_type_in_on_clause: error
+    nullable_type_in_with_clause: error
+    null_argument_to_non_null_type: error
+    null_check_always_fails: error
+    obsolete_colon_for_default_value: error
+    on_repeated: error
+    optional_parameter_in_operator: error
+    override_on_non_overriding_member: error
+    packed_annotation: error
+    packed_annotation_alignment: error
+    part_of_different_library: error
+    part_of_non_part: error
+    part_of_unnamed_library: error
+    path_does_not_exist: error
+    path_not_posix: error
+    path_pubspec_does_not_exist: error
+    pattern_assignment_not_local_variable: error
+    pattern_constant_from_deferred_library: error
+    pattern_type_mismatch_in_irrefutable_context: error
+    pattern_variable_assignment_inside_guard: error
+    platform_value_disallowed: error
+    positional_field_in_object_pattern: error
+    positional_super_formal_parameter_with_positional_argument: error
+    prefix_collides_with_top_level_member: error
+    prefix_identifier_not_followed_by_dot: error
+    prefix_shadowed_by_local_declaration: error
+    private_collision_in_mixin_application: error
+    private_optional_parameter: error
+    private_setter: error
+    read_potentially_unassigned_final: error
+    record_literal_one_positional_no_trailing_comma: error
+    record_type_one_positional_no_trailing_comma: error
+    recursive_compile_time_constant: error
+    recursive_constructor_redirect: error
+    recursive_interface_inheritance: error
+    redeclare_on_non_redeclaring_member: error
+    redirect_generative_to_missing_constructor: error
+    redirect_generative_to_non_generative_constructor: error
+    redirect_to_abstract_class_constructor: error
+    redirect_to_invalid_function_type: error
+    redirect_to_invalid_return_type: error
+    redirect_to_missing_constructor: error
+    redirect_to_non_class: error
+    redirect_to_non_const_constructor: error
+    redirect_to_type_alias_expands_to_type_parameter: error
+    referenced_before_declaration: error
+    refutable_pattern_in_irrefutable_context: error
+    relational_pattern_operand_type_not_assignable: error
+    relational_pattern_operator_return_type_not_assignable_to_bool: error
+    rest_element_in_map_pattern: error
+    rethrow_outside_catch: error
+    return_in_generative_constructor: error
+    return_in_generator: error
+    return_of_do_not_store: error
+    return_of_invalid_type: error
+    return_of_invalid_type_from_closure: error
+    return_without_value: error
+    sdk_version_constructor_tearoffs: error
+    sdk_version_gt_gt_gt_operator: error
+    sdk_version_never: error
+    set_element_type_not_assignable: error
+    shared_deferred_prefix: error
+    size_annotation_dimensions: error
+    static_access_to_instance_member: error
+    subtype_of_base_or_final_is_not_base_final_or_sealed: error
+    subtype_of_deferred_class: error
+    subtype_of_disallowed_type: error
+    subtype_of_sealed_class: error
+    subtype_of_struct_class: error
+    supertype_expands_to_type_parameter: error
+    super_formal_parameter_type_is_not_subtype_of_associated: error
+    super_formal_parameter_without_associated_named: error
+    super_formal_parameter_without_associated_positional: error
+    super_invocation_not_last: error
+    super_in_enum_constructor: error
+    super_in_extension: error
+    super_in_extension_type: error
+    super_in_invalid_context: error
+    super_in_redirecting_constructor: error
+    switch_case_completes_normally: error
+    switch_expression_not_assignable: error
+    tearoff_of_generative_constructor_of_abstract_class: error
+    text_direction_code_point_in_comment: error
+    text_direction_code_point_in_literal: error
+    throw_of_invalid_type: error
+    top_level_cycle: error
+    type_alias_cannot_reference_itself: error
+    type_annotation_deferred_class: error
+    type_argument_not_matching_bounds: error
+    type_check_with_null: error
+    type_parameter_referenced_by_static: error
+    type_parameter_supertype_of_its_bound: error
+    type_test_with_non_type: error
+    type_test_with_undefined_name: error
+    unchecked_use_of_nullable_value: error
+    undefined_annotation: error
+    undefined_class: error
+    undefined_constructor_in_initializer: error
+    undefined_enum_constant: error
+    undefined_enum_constructor: error
+    undefined_extension_getter: error
+    undefined_extension_method: error
+    undefined_extension_operator: error
+    undefined_extension_setter: error
+    undefined_function: error
+    undefined_getter: error
+    undefined_hidden_name: error
+    undefined_identifier: error
+    undefined_identifier_await: error
+    undefined_method: error
+    undefined_named_parameter: error
+    undefined_operator: error
+    undefined_prefixed_name: error
+    undefined_referenced_parameter: error
+    undefined_setter: error
+    undefined_shown_name: error
+    undefined_super_member: error
+    unknown_platform: error
+    unnecessary_cast: error
+    unnecessary_dev_dependency: error
+    unnecessary_final: error
+    unnecessary_import: error
+    unnecessary_nan_comparison: error
+    unnecessary_non_null_assertion: error
+    unnecessary_no_such_method: error
+    unnecessary_null_assert_pattern: error
+    unnecessary_null_check_pattern: error
+    unnecessary_null_comparison: error
+    unnecessary_question_mark: error
+    unnecessary_set_literal: error
+    unnecessary_type_check: error
+    unqualified_reference_to_non_local_static_member: error
+    unqualified_reference_to_static_member_of_extended_type: error
+    unreachable_switch_case: error
+    unused_catch_clause: error
+    unused_catch_stack: error
+    unused_element: error
+    unused_field: error
+    unused_import: error
+    unused_label: error
+    unused_local_variable: error
+    unused_result: error
+    unused_shown_name: error
+    uri_does_not_exist: error
+    uri_has_not_been_generated: error
+    uri_with_interpolation: error
+    use_of_native_extension: error
+    use_of_void_result: error
+    values_declaration_in_enum: error
+    variable_pattern_keyword_in_declaration_context: error
+    variable_type_mismatch: error
+    wrong_number_of_parameters_for_operator: error
+    wrong_number_of_parameters_for_setter: error
+    wrong_number_of_type_arguments: error
+    wrong_number_of_type_arguments_constructor: error
+    wrong_number_of_type_arguments_enum: error
+    wrong_number_of_type_arguments_extension: error
+    wrong_number_of_type_arguments_method: error
+    yield_in_non_generator: error
+    yield_of_invalid_type: error
+    # rules
+    always_declare_return_types: error
+    always_put_control_body_on_new_line: error
+    always_put_required_named_parameters_first: error
+    always_use_package_imports: error
+    annotate_overrides: error
+    annotate_redeclares: error
+    avoid_annotating_with_dynamic: error
+    avoid_bool_literals_in_conditional_expressions: error
+    avoid_catches_without_on_clauses: error
+    avoid_catching_errors: error
+    avoid_classes_with_only_static_members: error
+    avoid_double_and_int_checks: error
+    avoid_dynamic_calls: error
+    avoid_empty_else: error
+    avoid_equals_and_hash_code_on_mutable_classes: error
+    avoid_escaping_inner_quotes: error
+    avoid_field_initializers_in_const_classes: error
+    avoid_final_parameters: error
+    avoid_function_literals_in_foreach_calls: error
+    avoid_implementing_value_types: error
+    avoid_init_to_null: error
+    avoid_js_rounded_ints: error
+    avoid_multiple_declarations_per_line: error
+    avoid_null_checks_in_equality_operators: error
+    avoid_print: error
+    avoid_private_typedef_functions: error
+    avoid_redundant_argument_values: error
+    avoid_relative_lib_imports: error
+    avoid_renaming_method_parameters: error
+    avoid_return_types_on_setters: error
+    avoid_returning_null_for_void: error
+    avoid_returning_this: error
+    avoid_setters_without_getters: error
+    avoid_shadowing_type_parameters: error
+    avoid_single_cascade_in_expression_statements: error
+    avoid_slow_async_io: error
+    avoid_type_to_string: error
+    avoid_types_as_parameter_names: error
+    avoid_types_on_closure_parameters: error
+    avoid_unnecessary_containers: error
+    avoid_unused_constructor_parameters: error
+    avoid_void_async: error
+    avoid_web_libraries_in_flutter: error
+    await_only_futures: error
+    camel_case_extensions: error
+    camel_case_types: error
+    cancel_subscriptions: error
+    cascade_invocations: error
+    cast_nullable_to_non_nullable: error
+    close_sinks: error
+    collection_methods_unrelated_type: error
+    combinators_ordering: error
+    comment_references: error
+    conditional_uri_does_not_exist: error
+    constant_identifier_names: error
+    control_flow_in_finally: error
+    curly_braces_in_flow_control_structures: error
+    dangling_library_doc_comments: error
+    depend_on_referenced_packages: error
+    deprecated_consistency: error
+    deprecated_member_use_from_same_package: error
+    directives_ordering: error
+    discarded_futures: error
+    do_not_use_environment: error
+    empty_catches: error
+    empty_constructor_bodies: error
+    empty_statements: error
+    eol_at_end_of_file: error
+    exhaustive_cases: error
+    file_names: error
+    flutter_style_todos: error
+    hash_and_equals: error
+    implementation_imports: error
+    implicit_call_tearoffs: error
+    implicit_reopen: error
+    invalid_case_patterns: error
+    join_return_with_assignment: error
+    leading_newlines_in_multiline_strings: error
+    library_annotations: error
+    library_names: error
+    library_prefixes: error
+    library_private_types_in_public_api: error
+    literal_only_boolean_expressions: error
+    matching_super_parameters: error
+    missing_whitespace_between_adjacent_strings: error
+    no_adjacent_strings_in_list: error
+    no_default_cases: error
+    no_duplicate_case_values: error
+    no_leading_underscores_for_library_prefixes: error
+    no_leading_underscores_for_local_identifiers: error
+    no_literal_bool_comparisons: error
+    no_logic_in_create_state: error
+    no_runtimeType_toString: error
+    no_self_assignments: error
+    no_wildcard_variable_uses: error
+    non_constant_identifier_names: error
+    noop_primitive_operations: error
+    null_check_on_nullable_type_parameter: error
+    null_closures: error
+    omit_local_variable_types: error
+    only_throw_errors: error
+    overridden_fields: error
+    package_api_docs: error
+    package_names: error
+    package_prefixed_library_names: error
+    parameter_assignments: error
+    prefer_adjacent_string_concatenation: error
+    prefer_asserts_in_initializer_lists: error
+    prefer_asserts_with_message: error
+    prefer_collection_literals: error
+    prefer_conditional_assignment: error
+    prefer_const_constructors: error
+    prefer_const_constructors_in_immutables: error
+    prefer_const_declarations: error
+    prefer_const_literals_to_create_immutables: error
+    prefer_constructors_over_static_methods: error
+    prefer_contains: error
+    prefer_expression_function_bodies: error
+    prefer_final_fields: error
+    prefer_final_in_for_each: error
+    prefer_final_locals: error
+    prefer_for_elements_to_map_fromIterable: error
+    prefer_foreach: error
+    prefer_function_declarations_over_variables: error
+    prefer_generic_function_type_aliases: error
+    prefer_if_elements_to_conditional_expressions: error
+    prefer_if_null_operators: error
+    prefer_initializing_formals: error
+    prefer_inlined_adds: error
+    prefer_int_literals: error
+    prefer_interpolation_to_compose_strings: error
+    prefer_is_empty: error
+    prefer_is_not_empty: error
+    prefer_is_not_operator: error
+    prefer_iterable_whereType: error
+    prefer_mixin: error
+    prefer_null_aware_method_calls: error
+    prefer_null_aware_operators: error
+    prefer_single_quotes: error
+    prefer_spread_collections: error
+    prefer_typing_uninitialized_variables: error
+    prefer_void_to_null: error
+    provide_deprecation_message: error
+    recursive_getters: error
+    require_trailing_commas: error
+    secure_pubspec_urls: error
+    sized_box_for_whitespace: error
+    sized_box_shrink_expand: error
+    slash_for_doc_comments: error
+    sort_child_properties_last: error
+    sort_constructors_first: error
+    sort_pub_dependencies: error
+    sort_unnamed_constructors_first: error
+    test_types_in_equals: error
+    throw_in_finally: error
+    tighten_type_of_initializing_formals: error
+    type_annotate_public_apis: error
+    type_init_formals: error
+    type_literal_in_constant_pattern: error
+    unawaited_futures: error
+    unnecessary_await_in_return: error
+    unnecessary_brace_in_string_interps: error
+    unnecessary_breaks: error
+    unnecessary_const: error
+    unnecessary_constructor_name: error
+    unnecessary_getters_setters: error
+    unnecessary_lambdas: error
+    unnecessary_late: error
+    unnecessary_library_directive: error
+    unnecessary_new: error
+    unnecessary_null_aware_assignments: error
+    unnecessary_null_aware_operator_on_extension_on_nullable: error
+    unnecessary_null_checks: error
+    unnecessary_null_in_if_null_operators: error
+    unnecessary_nullable_for_final_variable_declarations: error
+    unnecessary_overrides: error
+    unnecessary_raw_strings: error
+    unnecessary_statements: error
+    unnecessary_string_escapes: error
+    unnecessary_string_interpolations: error
+    unnecessary_this: error
+    unnecessary_to_list_in_spreads: error
+    unreachable_from_main: error
+    unrelated_type_equality_checks: error
+    unsafe_html: error
+    use_build_context_synchronously: error
+    use_colored_box: error
+    use_decorated_box: error
+    use_enums: error
+    use_full_hex_values_for_flutter_colors: error
+    use_function_type_syntax_for_parameters: error
+    use_if_null_to_convert_nulls_to_bools: error
+    use_is_even_rather_than_modulo: error
+    use_key_in_widget_constructors: error
+    use_late_for_private_fields_and_variables: error
+    use_named_constants: error
+    use_raw_strings: error
+    use_rethrow_when_possible: error
+    use_setters_to_change_properties: error
+    use_string_buffers: error
+    use_string_in_part_of_directives: error
+    use_super_parameters: error
+    use_test_throws_matchers: error
+    use_to_and_as_if_applicable: error
+    valid_regexps: error
+    void_checks: error
+
+  exclude: [ build/**, lib/messages/** ]
+  language:
+    strict-casts: true
+    strict-raw-types: true
 
 linter:
   rules:
     - always_declare_return_types
     - always_put_control_body_on_new_line
     - always_put_required_named_parameters_first
+    # - always_specify_types
     - always_use_package_imports
     - annotate_overrides
+    - annotate_redeclares
     - avoid_annotating_with_dynamic
     - avoid_bool_literals_in_conditional_expressions
     - avoid_catches_without_on_clauses
@@ -28,6 +761,7 @@ linter:
     - avoid_js_rounded_ints
     - avoid_multiple_declarations_per_line
     - avoid_null_checks_in_equality_operators
+    # - avoid_positional_boolean_parameters
     - avoid_print
     - avoid_private_typedef_functions
     - avoid_redundant_argument_values
@@ -65,6 +799,7 @@ linter:
     - depend_on_referenced_packages
     - deprecated_consistency
     - deprecated_member_use_from_same_package
+    # - diagnostic_describe_all_properties
     - directives_ordering
     - discarded_futures
     - do_not_use_environment
@@ -86,8 +821,10 @@ linter:
     - library_names
     - library_prefixes
     - library_private_types_in_public_api
+    # - lines_longer_than_80_chars
     - literal_only_boolean_expressions
     - matching_super_parameters
+    # - missing_code_block_language_in_doc_comment
     - missing_whitespace_between_adjacent_strings
     - no_adjacent_strings_in_list
     - no_default_cases
@@ -104,6 +841,7 @@ linter:
     - null_check_on_nullable_type_parameter
     - null_closures
     - omit_local_variable_types
+    # - one_member_abstracts
     - only_throw_errors
     - overridden_fields
     - package_api_docs
@@ -121,10 +859,12 @@ linter:
     - prefer_const_literals_to_create_immutables
     - prefer_constructors_over_static_methods
     - prefer_contains
+    # - prefer_double_quotes
     - prefer_expression_function_bodies
     - prefer_final_fields
     - prefer_final_in_for_each
     - prefer_final_locals
+    # - prefer_final_parameters
     - prefer_for_elements_to_map_fromIterable
     - prefer_foreach
     - prefer_function_declarations_over_variables
@@ -142,11 +882,13 @@ linter:
     - prefer_mixin
     - prefer_null_aware_method_calls
     - prefer_null_aware_operators
+    # - prefer_relative_imports
     - prefer_single_quotes
     - prefer_spread_collections
     - prefer_typing_uninitialized_variables
     - prefer_void_to_null
     - provide_deprecation_message
+    # - public_member_api_docs
     - recursive_getters
     - require_trailing_commas
     - secure_pubspec_urls
@@ -169,6 +911,7 @@ linter:
     - unnecessary_breaks
     - unnecessary_const
     - unnecessary_constructor_name
+    # - unnecessary_final
     - unnecessary_getters_setters
     - unnecessary_lambdas
     - unnecessary_late
@@ -180,6 +923,7 @@ linter:
     - unnecessary_null_in_if_null_operators
     - unnecessary_nullable_for_final_variable_declarations
     - unnecessary_overrides
+    # - unnecessary_parenthesis
     - unnecessary_raw_strings
     - unnecessary_statements
     - unnecessary_string_escapes

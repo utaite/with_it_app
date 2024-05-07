@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:with_it/module/module.dart';
 import 'package:with_it/ui/main/fragment/planner/main_planner_event.dart';
-import 'package:with_it/ui/main/fragment/planner/repository/main_planner_mock_repository.dart';
 import 'package:with_it/ui/main/fragment/planner/repository/main_planner_repository.dart';
 import 'package:with_it/ui/main/fragment/planner/repository/main_planner_rest_repository.dart';
 import 'package:with_it/ui/main/fragment/planner/state/main_planner_state.dart';
@@ -21,7 +20,7 @@ final class MainPlannerBloc extends Bloc<MainPlannerEvent, MainPlannerState> {
   }
 
   factory MainPlannerBloc.empty({MainPlannerRepository? repository, MainPlannerState? initialState}) => MainPlannerBloc(
-        repository: repository ?? (Env.isMock ? const MainPlannerMockRepository() : const MainPlannerRestRepository()),
+        repository: repository ?? const MainPlannerRestRepository(),
         initialState: initialState ?? MainPlannerState.empty(),
       );
 

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:with_it/module/module.dart';
 import 'package:with_it/ui/main/main_event.dart';
-import 'package:with_it/ui/main/repository/main_mock_repository.dart';
 import 'package:with_it/ui/main/repository/main_repository.dart';
 import 'package:with_it/ui/main/repository/main_rest_repository.dart';
 import 'package:with_it/ui/main/state/main_state.dart';
@@ -17,7 +15,7 @@ final class MainBloc extends Bloc<MainEvent, MainState> {
   }
 
   factory MainBloc.values({MainRepository? repository, MainState? initialState}) => MainBloc(
-        repository: repository ?? (Env.isMock ? const MainMockRepository() : const MainRestRepository()),
+        repository: repository ?? const MainRestRepository(),
         initialState: initialState ?? MainState.values(),
       );
 

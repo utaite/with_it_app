@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:with_it/module/module.dart';
 import 'package:with_it/ui/main/fragment/statistics/main_statistics_event.dart';
-import 'package:with_it/ui/main/fragment/statistics/repository/main_statistics_mock_repository.dart';
 import 'package:with_it/ui/main/fragment/statistics/repository/main_statistics_repository.dart';
 import 'package:with_it/ui/main/fragment/statistics/repository/main_statistics_rest_repository.dart';
 import 'package:with_it/ui/main/fragment/statistics/state/main_statistics_state.dart';
@@ -21,7 +20,7 @@ final class MainStatisticsBloc extends Bloc<MainStatisticsEvent, MainStatisticsS
   }
 
   factory MainStatisticsBloc.empty({MainStatisticsRepository? repository, MainStatisticsState? initialState}) => MainStatisticsBloc(
-        repository: repository ?? (Env.isMock ? const MainStatisticsMockRepository() : const MainStatisticsRestRepository()),
+        repository: repository ?? const MainStatisticsRestRepository(),
         initialState: initialState ?? MainStatisticsState.empty(),
       );
 

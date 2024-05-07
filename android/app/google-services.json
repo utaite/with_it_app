@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "675546363663",
+    "project_id": "with-oit",
+    "storage_bucket": "with-oit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675546363663:android:08233ab08f589ecb1fb07a",
+        "android_client_info": {
+          "package_name": "com.withit.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675546363663-enbqvp5a9nmtl1tdg2fp685jh6j3pbv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOP3HFtT1iR73QZiuqdS-5cH0VQqOmHns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675546363663-enbqvp5a9nmtl1tdg2fp685jh6j3pbv6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "675546363663-6jcaeq7k5lcfqknimlqdd3ord9kdeh21.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.with.it.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
