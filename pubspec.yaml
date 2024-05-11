@@ -9,8 +9,8 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   equatable: ^2.0.5
-  firebase_core: 2.27.1
-  firebase_messaging: 14.7.20
+  firebase_core: ^2.31.0
+  firebase_messaging: ^14.9.2
   fixnum: ^1.1.0
   flutter:
     sdk: flutter
@@ -21,12 +21,12 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.10+1
   protobuf: ^3.1.0
-  rinf: 4.20.0
+  rinf: 5.4.0
   rxdart: ^0.27.7
   table_calendar: ^3.1.1
 
 dev_dependencies:
-  flutter_lints: ^3.0.2
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
   integration_test:

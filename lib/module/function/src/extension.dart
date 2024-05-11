@@ -145,6 +145,10 @@ extension TextStyleOptionalEx on TextStyle? {
   TextStyle get elvis => this ?? const TextStyle();
 }
 
+extension Uint8ListEx on Uint8List? {
+  List<int> get elvis => this ?? [];
+}
+
 extension WidgetOptionalEx on Widget? {
   Widget get elvis => this ?? const SizedBox();
 }

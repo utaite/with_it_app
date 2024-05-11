@@ -37,10 +37,6 @@ final class MainSettingFragment extends StatelessWidget {
             title: Text(RouteModel.mainSetting().title),
             actions: [
               PlatformButton(
-                onPressed: context.controller.onPressedTest,
-                icon: const Icon(Icons.add),
-              ),
-              PlatformButton(
                 onPressed: context.controller.onPressedChange,
                 icon: const Icon(Icons.change_circle_outlined),
               ),
@@ -48,12 +44,15 @@ final class MainSettingFragment extends StatelessWidget {
           ),
           body: CustomScrollView(
             slivers: [
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   UI.spacer,
                   Center(
-                    child: Text('Hello, MainSettingFragment!'),
+                    child: BlocSelector<MainSettingBloc, MainSettingState, String>(
+                      selector: (state) => state.output,
+                      builder: (context, output) => Text(output),
+                    ),
                   ),
                   UI.spacer,
                 ],

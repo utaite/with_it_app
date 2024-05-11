@@ -7,6 +7,7 @@ import 'package:with_it/ui/app/app_state.dart';
 import 'package:with_it/ui/main/fragment/home/main_home_bloc.dart';
 import 'package:with_it/ui/main/fragment/planner/main_planner_bloc.dart';
 import 'package:with_it/ui/main/fragment/setting/main_setting_bloc.dart';
+import 'package:with_it/ui/main/fragment/setting/main_setting_event.dart' as setting;
 import 'package:with_it/ui/main/fragment/statistics/main_statistics_bloc.dart';
 import 'package:with_it/ui/main/main_bloc.dart';
 import 'package:with_it/ui/main/main_page.dart';
@@ -30,7 +31,7 @@ final class AppController extends BaseController<AppCubit, AppState> {
                   create: (context) => context.singleton(MainPlannerBloc.empty),
                 ),
                 BlocProvider<MainSettingBloc>(
-                  create: (context) => context.singleton(MainSettingBloc.empty),
+                  create: (context) => context.singleton(MainSettingBloc.empty)..add(setting.ReadEvent()),
                 ),
                 BlocProvider<MainStatisticsBloc>(
                   create: (context) => context.singleton(MainStatisticsBloc.empty),

@@ -36,8 +36,12 @@ final class MainPlannerFragment extends StatelessWidget {
           appBar: PlatformAppBar(
             title: Text(RouteModel.mainPlanner().title),
           ),
-          body:
-          TableCalendar(
+          body: TableCalendar(
+            availableCalendarFormats: const {
+              CalendarFormat.month: '',
+            },
+            availableGestures: AvailableGestures.horizontalSwipe,
+            locale: 'ko_KR',
             focusedDay: DateTime.now(),
             firstDay: DateTime(2024),
             lastDay: DateTime(2025),

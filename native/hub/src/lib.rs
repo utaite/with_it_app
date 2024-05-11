@@ -5,6 +5,8 @@ use with_request::handle_request;
 mod api;
 mod bridge;
 mod messages;
+mod model;
+mod test;
 mod with_request;
 
 async fn main() {

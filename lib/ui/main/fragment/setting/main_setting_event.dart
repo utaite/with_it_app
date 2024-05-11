@@ -14,4 +14,6 @@ final class InitialEvent extends MainSettingEvent {
   List<Object?> get props => [state];
 }
 
+final class ReadEvent extends MainSettingEvent {}
+
 final class UntilPopEvent extends MainSettingEvent {}

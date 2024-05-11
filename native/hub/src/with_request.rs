@@ -1,13 +1,12 @@
-use crate::api;
 use crate::bridge::{RustRequestUnique, RustResponse, RustResponseUnique};
-use crate::messages;
+use crate::{api, messages};
 
 pub async fn handle_request(request_unique: RustRequestUnique) -> RustResponseUnique {
     let id = request_unique.id;
     let request = request_unique.request;
-    let response = match request.resource {
-        messages::test::ID => api::test::request(request).await,
-        _ => RustResponse::default(),
+    let response: Option<RustResponse> = match request.resource {
+        messages::test::ID => Some(api::test::request(request).await),
+        _ => None,
     };
 
     RustResponseUnique { id, response }

@@ -61,8 +61,8 @@ final class RouteModel extends BaseModel {
   static Iterable<RouteModel> mainValues() => [
         _mainHome,
         _mainPlanner,
-        _mainSetting,
         _mainStatistics,
+        _mainSetting,
       ];
 
   @override
