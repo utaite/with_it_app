@@ -6,6 +6,7 @@ mod api;
 mod bridge;
 mod messages;
 mod model;
+mod module;
 mod test;
 mod with_request;
 

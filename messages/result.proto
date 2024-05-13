@@ -1,0 +1,9 @@
+syntax = "proto3";
+package result;
+
+message Result {
+  uint32 status = 1;
+  string code = 2;
+  string type = 3;
+  repeated string messages = 4;
+}

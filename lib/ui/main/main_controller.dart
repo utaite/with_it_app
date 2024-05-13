@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:with_it/base/base.dart';
@@ -29,6 +30,8 @@ final class MainController extends BaseController<MainBloc, MainState> with Base
   @override
   final BuildContext context;
 
+  bool listenWhenSignIn(MainState previous, MainState current) => !previous.isSignIn && current.isSignIn;
+
   @override
   bool onWillPop() {
     final currentState = navigatorKeys[state.model.routes[state.model.index]]?.currentState;
@@ -41,6 +44,12 @@ final class MainController extends BaseController<MainBloc, MainState> with Base
     }
 
     return super.onWillPop();
+  }
+
+  Future<void> onListenSignIn([_, __]) async {
+    final deviceToken = await FirebaseMessaging.instance.getToken();
+
+    bloc.add(SignInEvent(deviceToken: deviceToken.elvis));
   }
 
   Future<void> onNavigationTap(int index) async {
@@ -63,7 +72,7 @@ final class MainController extends BaseController<MainBloc, MainState> with Base
 
   @override
   Map<String, WidgetBuilder> get fragments => {
-        '$slash${Routes.mainHome.name}': (context) => MultiBlocProvider(
+        '/${Routes.mainHome.name}': (context) => MultiBlocProvider(
               providers: [
                 BlocProvider<MainHomeBloc>.value(
                   value: BlocProvider.of(context),
@@ -71,7 +80,7 @@ final class MainController extends BaseController<MainBloc, MainState> with Base
               ],
               child: const MainHomeFragment(),
             ),
-        '$slash${Routes.mainPlanner.name}': (context) => MultiBlocProvider(
+        '/${Routes.mainPlanner.name}': (context) => MultiBlocProvider(
               providers: [
                 BlocProvider<MainPlannerBloc>.value(
                   value: BlocProvider.of(context),
@@ -79,7 +88,7 @@ final class MainController extends BaseController<MainBloc, MainState> with Base
               ],
               child: const MainPlannerFragment(),
             ),
-        '$slash${Routes.mainSetting.name}': (context) => MultiBlocProvider(
+        '/${Routes.mainSetting.name}': (context) => MultiBlocProvider(
               providers: [
                 BlocProvider<MainSettingBloc>.value(
                   value: BlocProvider.of(context),
@@ -87,7 +96,7 @@ final class MainController extends BaseController<MainBloc, MainState> with Base
               ],
               child: const MainSettingFragment(),
             ),
-        '$slash${Routes.mainStatistics.name}': (context) => MultiBlocProvider(
+        '/${Routes.mainStatistics.name}': (context) => MultiBlocProvider(
               providers: [
                 BlocProvider<MainStatisticsBloc>.value(
                   value: BlocProvider.of(context),

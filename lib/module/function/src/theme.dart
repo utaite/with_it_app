@@ -44,6 +44,32 @@ extension ThemeDataExV2 on ThemeData {
         type: BottomNavigationBarType.fixed,
       );
 
+  FilledButtonThemeData get _filledButtonTheme => FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Resource.colorPrimary,
+          disabledForegroundColor: Colors.white,
+          disabledBackgroundColor: Resource.colorPrimary.withOpacity(3.div(10)),
+          padding: Paddings.paddingAll16,
+          shape: const RoundedRectangleBorder(),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
+      );
+
+  FilledButtonThemeData get _uncoloredFilledButtonTheme {
+    final style = FilledButton.styleFrom(
+      foregroundColor: Resource.colorGrey[S.s800.s],
+      backgroundColor: Resource.colorGrey[S.s100.s],
+    );
+
+    return FilledButtonThemeData(
+      style: _filledButtonTheme.style?.copyWith(
+        foregroundColor: style.foregroundColor,
+        backgroundColor: style.backgroundColor,
+      ),
+    );
+  }
+
   TextTheme get _textTheme => TextTheme(
         headlineLarge: brightness.isDark ? Styles.textWhite32 : Styles.textGrey32,
         headlineMedium: brightness.isDark ? Styles.textWhite28 : Styles.textGrey28,
@@ -54,5 +80,25 @@ extension ThemeDataExV2 on ThemeData {
         labelLarge: brightness.isDark ? Styles.textWhite12 : Styles.textGrey12,
         labelMedium: brightness.isDark ? Styles.textWhite10 : Styles.textGrey10,
         labelSmall: brightness.isDark ? Styles.textWhite8 : Styles.textGrey8,
+      );
+
+  FilledButtonThemeData isColoredFilledButtonTheme({required bool isColored}) => isColored ? _filledButtonTheme : _uncoloredFilledButtonTheme;
+
+  FilledButtonThemeData redFilledButtonTheme() {
+    final style = FilledButton.styleFrom(
+      backgroundColor: Resource.colorRed,
+      disabledBackgroundColor: Resource.colorRed.withOpacity(3.div(10)),
+    );
+
+    return FilledButtonThemeData(
+      style: _filledButtonTheme.style?.copyWith(
+        backgroundColor: style.backgroundColor,
+      ),
+    );
+  }
+
+  TextStyle? filledButtonTextStyle() => _textTheme.titleSmall?.copyWith(
+        color: filledButtonTheme.style?.foregroundColor?.resolve(MaterialState.values.toSet()),
+        fontWeight: FontWeight.w600,
       );
 }

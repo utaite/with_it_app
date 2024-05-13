@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:with_it/module/module.dart';
 
 extension BoolOptionalEx on bool? {
@@ -22,18 +21,6 @@ extension BrightnessOptionalEx on Brightness? {
   SystemUiOverlayStyle get statusBarStyle => isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
 }
 
-extension BuildContextEx on BuildContext {
-  T? arguments<T>() => ModalRoute.of(this)?.settings.arguments is T ? ModalRoute.of(this)?.settings.arguments as T : null;
-
-  T singleton<T extends StateStreamableSource<Object?>>(T Function() create) {
-    try {
-      return read<T>();
-    } on Exception {
-      return create.call();
-    }
-  }
-}
-
 extension ColorOptionalEx on Color? {
   Color get elvis => this ?? Colors.transparent;
 
@@ -47,6 +34,12 @@ extension CupertinoThemeDataEx on CupertinoThemeData {
         barBackgroundColor: theme?.scaffoldBackgroundColor,
         scaffoldBackgroundColor: theme?.scaffoldBackgroundColor,
       );
+}
+
+extension DateTimeOptionalEx on DateTime? {
+  DateTime get elvis => this ?? initialDateTime;
+
+  bool get isEmpty => elvis.millisecondsSinceEpoch <= initialDateTime.millisecondsSinceEpoch;
 }
 
 extension DateTimeEx on DateTime {

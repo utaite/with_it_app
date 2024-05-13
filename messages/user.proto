@@ -1,0 +1,36 @@
+syntax = "proto3";
+package user;
+
+import "result.proto";
+
+message UserCreateRequest {
+  UserCreateRequestData data = 1;
+}
+
+message UserCreateRequestData {
+  string name = 1;
+  string device_token = 2;
+}
+
+message UserCreateResponse {
+  result.Result result = 1;
+}
+
+message UserReadRequest {
+  UserReadRequestData data = 1;
+}
+
+message UserReadRequestData {
+  string device_token = 1;
+}
+
+message UserReadResponse {
+  result.Result result = 1;
+  UserReadResponseData data = 2;
+}
+
+message UserReadResponseData {
+  uint64 id = 1;
+  string name = 2;
+  string device_token = 3;
+}

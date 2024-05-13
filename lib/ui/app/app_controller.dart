@@ -10,7 +10,9 @@ import 'package:with_it/ui/main/fragment/setting/main_setting_bloc.dart';
 import 'package:with_it/ui/main/fragment/setting/main_setting_event.dart' as setting;
 import 'package:with_it/ui/main/fragment/statistics/main_statistics_bloc.dart';
 import 'package:with_it/ui/main/main_bloc.dart';
+import 'package:with_it/ui/main/main_event.dart' as main;
 import 'package:with_it/ui/main/main_page.dart';
+import 'package:with_it/ui/main/state/main_state.dart';
 
 final class AppController extends BaseController<AppCubit, AppState> {
   AppController(this.context);
@@ -19,10 +21,23 @@ final class AppController extends BaseController<AppCubit, AppState> {
   final BuildContext context;
 
   Map<String, WidgetBuilder> get routes => {
-        '$slash${Routes.main.name}': (context) => MultiBlocProvider(
+        '/${Routes.main.name}': (context) => MultiBlocProvider(
               providers: [
                 BlocProvider<MainBloc>(
-                  create: (context) => context.singleton(MainBloc.values),
+                  create: (context) {
+                    final mainBloc = MainBloc.values(
+                      initialState: MainState.values().copyWith(
+                        isLoading: true,
+                      ),
+                    );
+                    final event = main.InitialEvent(
+                      state: mainBloc.state.copyWith(
+                        isSignIn: true,
+                      ),
+                    );
+
+                    return mainBloc..add(event);
+                  },
                 ),
                 BlocProvider<MainHomeBloc>(
                   create: (context) => context.singleton(MainHomeBloc.empty),

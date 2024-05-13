@@ -6,6 +6,17 @@ final class Values {
   static const double placeholderWidgetSize = 18;
   static const double placeholderIndicatorSize = 2;
 
+  static const double radiusBottomSheetValue = 20;
+  static const double radiusCardValue = 20;
+  static const double radiusCircleValue = 6888;
+  static const double radiusDialogValue = 20;
+  static const double radiusButtonValue = 16;
+  static const double radiusMessageValue = 16;
+  static const double radiusTextValue = 16;
+  static const double radiusCardSmallValue = 12;
+  static const double radiusTabValue = 12;
+  static const double radiusGraphValue = 8;
+
   static const Duration weeks = Duration(days: 7);
   static const Duration days = Duration(days: 1);
   static const Duration hours = Duration(hours: 1);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:table_calendar/table_calendar.dart';
 import 'package:with_it/module/module.dart';
 import 'package:with_it/ui/main/fragment/planner/main_planner_event.dart';
 import 'package:with_it/ui/main/fragment/planner/repository/main_planner_repository.dart';
@@ -13,6 +14,8 @@ final class MainPlannerBloc extends Bloc<MainPlannerEvent, MainPlannerState> {
     required MainPlannerState initialState,
   }) : super(initialState) {
     on<InitialEvent>(_onInitial);
+    on<ChangedFocusedDayEvent>(_onChangedFocusedDay);
+    on<ChangedRangeEvent>(_onChangedRangeEvent);
     on<UntilPopEvent>(
       _onUntilPop,
       transformer: (events, mapper) => events.throttleTime(Values.duration).exhaustMap(mapper),
@@ -29,6 +32,36 @@ final class MainPlannerBloc extends Bloc<MainPlannerEvent, MainPlannerState> {
   void _onInitial(InitialEvent event, Emitter<MainPlannerState> emit) {
     debugPrint('[MainPlannerBloc] _onInitial: $event');
     return emit(event.state ?? MainPlannerState.empty());
+  }
+
+  void _onChangedFocusedDay(ChangedFocusedDayEvent event, Emitter<MainPlannerState> emit) {
+    debugPrint('[MainPlannerBloc] _onChangedFocusedDay: $event');
+    return emit(
+      state.copyWith(
+        model: state.model.copyWith(
+          rangeSelectionMode: RangeSelectionMode.toggledOff,
+          start: initialDateTime,
+          end: initialDateTime,
+          selectedDay: event.selectedDay,
+          focusedDay: event.focusedDay,
+        ),
+      ),
+    );
+  }
+
+  void _onChangedRangeEvent(ChangedRangeEvent event, Emitter<MainPlannerState> emit) {
+    debugPrint('[MainPlannerBloc] _onChangedRangeEvent: $event');
+    return emit(
+      state.copyWith(
+        model: state.model.copyWith(
+          rangeSelectionMode: RangeSelectionMode.toggledOn,
+          start: event.start,
+          end: event.end,
+          selectedDay: initialDateTime,
+          focusedDay: event.focusedDay,
+        ),
+      ),
+    );
   }
 
   void _onUntilPop(UntilPopEvent event, Emitter<MainPlannerState> emit) {

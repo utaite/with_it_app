@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:with_it/base/base.dart';
+import 'package:with_it/module/module.dart';
 
 abstract base class BaseController<B extends StateStreamable<S>, S extends BaseState> with BaseMixin {
   B get bloc => context.read();
@@ -28,7 +29,15 @@ abstract base class BaseController<B extends StateStreamable<S>, S extends BaseS
 
   bool buildWhen(S previous, S current) => previous.status != current.status;
 
-  Future<void> onListenError(BuildContext context, S state) async {}
+  Future<void> onListenError(BuildContext context, S state) async {
+    if (state is BaseErrorLoadingState && state.error.isTypeDialog) {
+      debugPrint('ERROR');
+      await context.showDialog(
+        title: state.error.title,
+        content: state.error.content,
+      );
+    }
+  }
 
   void onListenPop(BuildContext context, S state) {
     super.pop(true);

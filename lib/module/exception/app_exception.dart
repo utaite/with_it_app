@@ -1,16 +1,22 @@
 import 'package:with_it/base/base.dart';
 import 'package:with_it/module/module.dart';
 
-final class AppException extends BaseModel implements Exception {
-  const AppException({
+final class GlobalException extends BaseModel implements Exception {
+  const GlobalException({
+    required this.type,
+    required this.code,
     required this.messages,
   });
 
-  factory AppException.empty() => _empty;
+  factory GlobalException.empty() => _empty;
 
+  final ErrorType type;
+  final ErrorCode code;
   final Iterable<String> messages;
 
-  static const AppException _empty = AppException(
+  static const GlobalException _empty = GlobalException(
+    type: ErrorType.empty,
+    code: ErrorCode.empty,
     messages: Iterable.empty(),
   );
 
@@ -21,14 +27,24 @@ final class AppException extends BaseModel implements Exception {
 
   String get content => messages.length.isPositive ? messages.skip(messages.length.minusInt(1)).firstOrNull.elvis : '';
 
+  bool get isTypeEmpty => type == ErrorType.empty;
+
+  bool get isTypeDialog => type == ErrorType.dialog;
+
+  bool get isTypeText => type == ErrorType.text;
+
   @override
-  AppException copyWith({
+  GlobalException copyWith({
+    ErrorType? type,
+    ErrorCode? code,
     Iterable<String>? messages,
   }) =>
-      AppException(
+      GlobalException(
+        type: type ?? this.type,
+        code: code ?? this.code,
         messages: messages ?? this.messages,
       );
 
   @override
-  List<Object?> get props => [messages];
+  List<Object?> get props => [type, code, messages];
 }

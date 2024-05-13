@@ -8,4 +8,6 @@ final class MainHomeController extends BaseController<MainHomeBloc, MainHomeStat
 
   @override
   final BuildContext context;
+
+  void onPressedMore() {}
 }

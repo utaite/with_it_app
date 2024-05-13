@@ -1,0 +1,10 @@
+syntax = "proto3";
+package user_service;
+
+import "user.proto";
+
+service UserService {
+  rpc signUp (user.UserCreateRequest) returns (user.UserCreateResponse);
+
+  rpc signIn (user.UserReadRequest) returns (user.UserReadResponse);
+}

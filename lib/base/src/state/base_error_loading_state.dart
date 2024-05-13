@@ -3,9 +3,9 @@ import 'package:with_it/base/base.dart';
 import 'package:with_it/module/module.dart';
 
 mixin BaseErrorLoadingState on Equatable implements BaseLoadingState {
-  AppException get error => AppException.empty();
+  GlobalException get error => GlobalException.empty();
 
-  bool get isError => !error.isEmpty;
+  bool get isError => !error.isEmpty && error.isTypeText;
 
   @override
   Status get status {

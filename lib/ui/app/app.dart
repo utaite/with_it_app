@@ -11,6 +11,7 @@ import 'package:with_it/module/module.dart';
 import 'package:with_it/ui/app/app_controller.dart';
 import 'package:with_it/ui/app/app_cubit.dart';
 import 'package:with_it/ui/app/app_state.dart';
+import 'package:with_it/ui/common/dialog/dialog_cubit.dart';
 import 'package:with_it/ui/widget/widget.dart';
 
 extension on BuildContext {
@@ -59,6 +60,9 @@ class _AppState extends State<App> {
                 ),
               ),
             ),
+          ),
+          BlocProvider<DialogCubit>(
+            create: (context) => context.singleton(DialogCubit.empty),
           ),
         ],
         child: BlocSelector<AppCubit, AppState, Brightness>(

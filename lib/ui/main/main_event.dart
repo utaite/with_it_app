@@ -24,3 +24,14 @@ final class ChangedIndexEvent extends MainEvent {
   @override
   List<Object?> get props => [index];
 }
+
+final class SignInEvent extends MainEvent {
+  SignInEvent({
+    required this.deviceToken,
+  });
+
+  final String deviceToken;
+
+  @override
+  List<Object?> get props => [deviceToken];
+}

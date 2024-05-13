@@ -35,4 +35,30 @@ final class Resource {
     },
   );
   static const int _colorRedValue = 0xFFE84135;
+
+  static const MaterialColor colorBlue = MaterialColor(
+    _colorBlueValue,
+    {
+      200: Color(0xFFC6EAFF),
+      400: Color(_colorBlueValue),
+    },
+  );
+  static const int _colorBlueValue = 0xFF4EBFFF;
+
+  static const MaterialColor colorYellow = MaterialColor(
+    _colorYellowValue,
+    {
+      200: Color(0xFFFFEF9D),
+      400: Color(_colorYellowValue),
+    },
+  );
+  static const int _colorYellowValue = 0xFFFFC224;
+
+  static const MaterialColor colorBlack = MaterialColor(
+    _colorBlackValue,
+    {
+      400: Color(_colorBlackValue),
+    },
+  );
+  static const int _colorBlackValue = 0xFF0D0D0D;
 }
