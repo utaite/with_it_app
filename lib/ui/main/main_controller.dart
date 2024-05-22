@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:with_it/base/base.dart';
@@ -20,6 +19,7 @@ import 'package:with_it/ui/main/fragment/statistics/main_statistics_event.dart' 
 import 'package:with_it/ui/main/fragment/statistics/main_statistics_fragment.dart';
 import 'package:with_it/ui/main/main_bloc.dart';
 import 'package:with_it/ui/main/main_event.dart';
+import 'package:with_it/ui/main/state/main_error_state.dart';
 import 'package:with_it/ui/main/state/main_state.dart';
 
 final Map<RouteModel, GlobalKey<NavigatorState>> _navigatorKeys = {};
@@ -46,10 +46,16 @@ final class MainController extends BaseController<MainBloc, MainState> with Base
     return super.onWillPop();
   }
 
-  Future<void> onListenSignIn([_, __]) async {
-    final deviceToken = await FirebaseMessaging.instance.getToken();
+  @override
+  Future<void> onListenError(BuildContext context, MainState state) async {
+    await super.onListenError(context, state);
+    if (state is MainErrorState && state.error.isTypePage) {
+      await super.offNamed(RouteModel.name());
+    }
+  }
 
-    bloc.add(SignInEvent(deviceToken: deviceToken.elvis));
+  Future<void> onListenSignIn([_, __]) async {
+    bloc.add(SignInEvent());
   }
 
   Future<void> onNavigationTap(int index) async {

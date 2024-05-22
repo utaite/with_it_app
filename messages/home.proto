@@ -1,0 +1,64 @@
+syntax = "proto3";
+package home;
+
+import "result.proto";
+
+message HomeReadRequest {
+  HomeReadRequestData data = 1;
+}
+
+message HomeReadRequestData {
+  string device_token = 1;
+  string date_time = 2;
+}
+
+message HomeReadResponse {
+  result.Result result = 1;
+  HomeReadResponseData data = 2;
+}
+
+message HomeReadResponseData {
+  repeated HomeReadResponseSubject subjects = 1;
+  repeated HomeReadResponsePlan plans = 2;
+}
+
+message HomeReadResponseSubject {
+  uint64 id = 1;
+  string name = 2;
+  string code = 3;
+  uint64 color = 4;
+  uint64 background_color = 5;
+}
+
+message HomeReadResponsePlan {
+  uint64 id = 1;
+  string name = 2;
+  string detail = 3;
+  string started_at = 4;
+  string ended_at = 5;
+}
+
+message HomeUpdateRequest {
+  HomeUpdateRequestData data = 1;
+}
+
+message HomeUpdateRequestData {
+  uint64 plan_id = 1;
+  uint64 subject_id = 2;
+}
+
+message HomeUpdateResponse {
+  result.Result result = 1;
+}
+
+message HomeDeleteRequest {
+  HomeDeleteRequestData data = 1;
+}
+
+message HomeDeleteRequestData {
+  uint64 plan_id = 1;
+}
+
+message HomeDeleteResponse {
+  result.Result result = 1;
+}

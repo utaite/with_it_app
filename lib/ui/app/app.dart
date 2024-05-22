@@ -11,6 +11,7 @@ import 'package:with_it/module/module.dart';
 import 'package:with_it/ui/app/app_controller.dart';
 import 'package:with_it/ui/app/app_cubit.dart';
 import 'package:with_it/ui/app/app_state.dart';
+import 'package:with_it/ui/common/bottom_sheet/date_time/date_time_bottom_sheet_cubit.dart';
 import 'package:with_it/ui/common/dialog/dialog_cubit.dart';
 import 'package:with_it/ui/widget/widget.dart';
 
@@ -63,6 +64,9 @@ class _AppState extends State<App> {
           ),
           BlocProvider<DialogCubit>(
             create: (context) => context.singleton(DialogCubit.empty),
+          ),
+          BlocProvider<DateTimeBottomSheetCubit>(
+            create: (context) => context.singleton(DateTimeBottomSheetCubit.empty),
           ),
         ],
         child: BlocSelector<AppCubit, AppState, Brightness>(

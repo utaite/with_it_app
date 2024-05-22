@@ -31,6 +31,8 @@ final class GlobalException extends BaseModel implements Exception {
 
   bool get isTypeDialog => type == ErrorType.dialog;
 
+  bool get isTypePage => type == ErrorType.page;
+
   bool get isTypeText => type == ErrorType.text;
 
   @override

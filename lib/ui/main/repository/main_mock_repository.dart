@@ -7,13 +7,6 @@ final class MainMockRepository implements MainRepository {
   const MainMockRepository();
 
   @override
-  Future<UserCreateResponse> createUser(UserCreateRequest request) async => UserCreateResponse(
-        result: Result(
-          code: Strings.success,
-        ),
-      );
-
-  @override
   Future<UserReadResponse> readUser(UserReadRequest request) async => UserReadResponse(
         result: Result(
           code: Strings.success,

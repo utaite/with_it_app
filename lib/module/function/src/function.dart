@@ -5,6 +5,11 @@ import 'package:with_it/module/module.dart';
 
 DateTime get initialDateTime => DateTime(1970);
 
+DateTime? parseDateTime(Object? json) {
+  final str = json.toString();
+  return str.isNotEmpty ? DateTime.tryParse(str) : null;
+}
+
 void validate(Iterable<Result> result) {
   result
       .map(

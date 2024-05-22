@@ -16,9 +16,10 @@ final class Resource {
     _colorGreyValue,
     {
       100: Color(0xFFF5F5F5),
-      200: Color(0xFFDFDFDF),
+      200: Color(0xFFECECEC),
       300: Color(0xFFCECECE),
       400: Color(0xFFB9B9B9),
+      500: Color(0xFFB5B5B5),
       600: Color(_colorGreyValue),
       700: Color(0xFF7A7A7A),
       800: Color(0xFF5C5C5C),

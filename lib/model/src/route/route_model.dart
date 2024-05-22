@@ -20,6 +20,8 @@ final class RouteModel extends BaseModel {
 
   factory RouteModel.mainStatistics() => _mainStatistics;
 
+  factory RouteModel.name() => _name;
+
   final Routes routes;
   final String title;
   final String icon;
@@ -56,6 +58,10 @@ final class RouteModel extends BaseModel {
     routes: Routes.mainStatistics,
     title: '통계',
     icon: Assets.statistics,
+  );
+
+  static final RouteModel _name = _empty.copyWith(
+    routes: Routes.name,
   );
 
   static Iterable<RouteModel> mainValues() => [

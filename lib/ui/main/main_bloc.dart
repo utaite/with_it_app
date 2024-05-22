@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:with_it/messages/user.pb.dart';
@@ -54,7 +55,7 @@ final class MainBloc extends Bloc<MainEvent, MainState> {
     final userRead = await repository.readUser(
       UserReadRequest(
         data: UserReadRequestData(
-          deviceToken: event.deviceToken,
+          deviceToken: await FirebaseMessaging.instance.getToken(),
         ),
       ),
     );
@@ -65,6 +66,7 @@ final class MainBloc extends Bloc<MainEvent, MainState> {
       return emit(
         state.copyWith(
           userRead: userRead,
+          isLoading: false,
         ),
       );
     } on GlobalException catch (e) {

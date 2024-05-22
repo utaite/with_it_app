@@ -20,7 +20,7 @@ extension BuildContextEx on BuildContext {
 
   Future<bool?> showDialog({
     required String content,
-    String title = '클릭리스 안내',
+    String title = '안내',
     Iterable<Widget> children = const Iterable.empty(),
     String positive = '확인',
     ValueChanged<BuildContext>? onPressedPositive,

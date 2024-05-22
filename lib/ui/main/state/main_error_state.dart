@@ -32,6 +32,9 @@ final class MainErrorState extends MainState with BaseErrorLoadingState {
   bool get isEmpty => this == _empty;
 
   @override
+  bool get isLoading => super.isLoading || error.isTypePage;
+
+  @override
   MainErrorState copyWith({
     MainState? state,
     MainModel? model,

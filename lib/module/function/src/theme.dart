@@ -20,6 +20,8 @@ extension ThemeDataExV2 on ThemeData {
         fontFamily: Font.pretendard,
         appBarTheme: _appBarTheme,
         bottomNavigationBarTheme: _bottomNavigationBarTheme,
+        filledButtonTheme: _filledButtonTheme,
+        inputDecorationTheme: _inputDecorationTheme,
         textTheme: _textTheme,
       );
 
@@ -51,7 +53,9 @@ extension ThemeDataExV2 on ThemeData {
           disabledForegroundColor: Colors.white,
           disabledBackgroundColor: Resource.colorPrimary.withOpacity(3.div(10)),
           padding: Paddings.paddingAll16,
-          shape: const RoundedRectangleBorder(),
+          shape: const RoundedRectangleBorder(
+            borderRadius: UI.borderRadiusText,
+          ),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
       );
@@ -69,6 +73,35 @@ extension ThemeDataExV2 on ThemeData {
       ),
     );
   }
+
+  InputDecorationTheme get _inputDecorationTheme => InputDecorationTheme(
+    isDense: true,
+    filled: true,
+    fillColor: Resource.colorGrey[S.s200.s],
+    hintStyle: _textTheme.titleSmall?.copyWith(
+      color: Resource.colorGrey[S.s400.s],
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Resource.colorGrey[S.s200.s].elvis,
+      ),
+      borderRadius: UI.borderRadiusText,
+    ),
+    disabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Resource.colorGrey[S.s200.s].elvis,
+      ),
+      borderRadius: UI.borderRadiusText,
+    ),
+    focusedBorder: const OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Resource.colorPrimary,
+        width: 2,
+      ),
+      borderRadius: UI.borderRadiusText,
+    ),
+    contentPadding: Paddings.paddingAll16,
+  );
 
   TextTheme get _textTheme => TextTheme(
         headlineLarge: brightness.isDark ? Styles.textWhite32 : Styles.textGrey32,
@@ -97,7 +130,7 @@ extension ThemeDataExV2 on ThemeData {
     );
   }
 
-  TextStyle? filledButtonTextStyle() => _textTheme.titleSmall?.copyWith(
+  TextStyle? filledButtonTextStyle() => _textTheme.titleMedium?.copyWith(
         color: filledButtonTheme.style?.foregroundColor?.resolve(MaterialState.values.toSet()),
         fontWeight: FontWeight.w600,
       );

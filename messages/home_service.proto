@@ -1,0 +1,12 @@
+syntax = "proto3";
+package home_service;
+
+import "home.proto";
+
+service HomeService {
+  rpc read (home.HomeReadRequest) returns (home.HomeReadResponse);
+
+  rpc update (home.HomeUpdateRequest) returns (home.HomeUpdateResponse);
+
+  rpc delete (home.HomeDeleteRequest) returns (home.HomeDeleteResponse);
+}

@@ -82,9 +82,6 @@ void main(List<String> args) async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await setupFlutterNotifications();
 
-  final token = await FirebaseMessaging.instance.getToken();
-  debugPrint('token: $token');
-
   return runApp(
     App(
       initialRoute: RouteModel.main(),

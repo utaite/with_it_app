@@ -1,0 +1,36 @@
+syntax = "proto3";
+package planner;
+
+import "result.proto";
+
+message PlannerReadRequest {
+  PlannerReadRequestData data = 1;
+}
+
+message PlannerReadRequestData {
+  string device_token = 1;
+  string date_time = 2;
+}
+
+message PlannerReadResponse {
+  result.Result result = 1;
+  PlannerReadResponseData data = 2;
+}
+
+message PlannerReadResponseData {
+  repeated PlannerReadResponseSubject subjects = 1;
+}
+
+message PlannerReadResponseSubject {
+  uint64 id = 1;
+  string name = 2;
+  string code = 3;
+  uint64 color = 4;
+  uint64 background_color = 5;
+  repeated PlannerReadResponsePlan plans = 6;
+}
+
+message PlannerReadResponsePlan {
+  uint64 id = 1;
+  string detail = 2;
+}

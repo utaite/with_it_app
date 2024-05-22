@@ -1,0 +1,8 @@
+syntax = "proto3";
+package planner_service;
+
+import "planner.proto";
+
+service PlannerService {
+  rpc read (planner.PlannerReadRequest) returns (planner.PlannerReadResponse);
+}

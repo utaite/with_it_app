@@ -1,4 +1,7 @@
-use crate::api::user::user::{UserCreateRequest, UserCreateRequestData, UserCreateResponse, UserReadRequest, UserReadRequestData, UserReadResponse};
+use crate::api::user::user::{
+    UserCreateRequest, UserCreateRequestData, UserCreateResponse, UserReadRequest,
+    UserReadRequestData, UserReadResponse,
+};
 use crate::bridge::{RustOperation, RustRequest, RustRequestUnique};
 use crate::{messages, with_request};
 use prost::Message;

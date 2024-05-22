@@ -27,19 +27,6 @@ final class ChangedFocusedDayEvent extends MainPlannerEvent {
   List<Object?> get props => [selectedDay, focusedDay];
 }
 
-final class ChangedRangeEvent extends MainPlannerEvent {
-  ChangedRangeEvent({
-    required this.start,
-    required this.end,
-    required this.focusedDay,
-  });
-
-  final DateTime? start;
-  final DateTime? end;
-  final DateTime focusedDay;
-
-  @override
-  List<Object?> get props => [start, end, focusedDay];
-}
+final class ReadEvent extends MainPlannerEvent {}
 
 final class UntilPopEvent extends MainPlannerEvent {}

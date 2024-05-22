@@ -22,15 +22,9 @@ final class MainPlannerController extends BaseController<MainPlannerBloc, MainPl
 
   void onPressedPlan() {}
 
-  void onRangeSelected(DateTime? start, DateTime? end, DateTime focusedDay) {
-    bloc.add(
-      ChangedRangeEvent(
-        start: start,
-        end: end,
-        focusedDay: focusedDay,
-      ),
-    );
+  Future<void> onRefresh() async {
+    bloc.add(ReadEvent());
   }
 
-  bool selectedDayPredicate(DateTime day) => isSameDay(day, state.model.selectedDay);
+  bool selectedDayPredicate(DateTime day) => isSameDay(day, state.request.selectedDay);
 }

@@ -12,7 +12,7 @@ final class Values {
   static const double radiusDialogValue = 20;
   static const double radiusButtonValue = 16;
   static const double radiusMessageValue = 16;
-  static const double radiusTextValue = 16;
+  static const double radiusTextValue = 8;
   static const double radiusCardSmallValue = 12;
   static const double radiusTabValue = 12;
   static const double radiusGraphValue = 8;

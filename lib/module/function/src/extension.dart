@@ -44,6 +44,18 @@ extension DateTimeOptionalEx on DateTime? {
 
 extension DateTimeEx on DateTime {
   DateTime get midnight => DateTime(year, month, day);
+
+  String get format => [year.toString().padLeft(4, '0'), month.toString().padLeft(2, '0'), day.toString().padLeft(2, '0')].join('-');
+
+  String get text => [
+        if (hour >= 12) '오후' else '오전',
+        ' ',
+        (hour > 12 ? hour - 12 : hour).toString().padLeft(2, '0'),
+        ':',
+        minute.toString().padLeft(2, '0'),
+      ].join();
+
+  String get fullDate => ['$year년', '$month월', '$day일', '(${Day.values[weekday.minusInt(1)].value})'].join(' ');
 }
 
 extension DoubleOptionalEx on double? {
@@ -66,6 +78,20 @@ extension DoubleEx on double {
 
 extension DurationOptinoalEx on Duration? {
   Duration get elvis => this ?? Duration.zero;
+}
+
+extension DurationEx on Duration {
+  String get format => [
+        inHours.toString().padLeft(2, '0'),
+        inMinutes.remInt(60).toString().padLeft(2, '0'),
+        inSeconds.remInt(60).toString().padLeft(2, '0'),
+      ].join(':');
+
+  String get rest => [
+        '휴식',
+        if (inHours.isPositive) '${inHours}h',
+        if (inMinutes.remInt(60).isPositive) '${inMinutes.remInt(60).toString().padLeft(2, '0')}m',
+      ].join(' ');
 }
 
 extension IntOptionalEx on int? {

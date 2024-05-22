@@ -5,4 +5,5 @@ enum Routes {
   mainPlanner,
   mainSetting,
   mainStatistics,
+  name,
 }

@@ -4,6 +4,7 @@ enum ErrorType {
   empty,
   dialog,
   dialogText,
+  page,
   text,
 }
 

@@ -23,7 +23,7 @@ abstract base class BaseController<B extends StateStreamable<S>, S extends BaseS
 
   bool onWillPop() => state.isWillPop;
 
-  bool listenWhen(S previous, S current) => current.isActive && current.isListen;
+  bool listenWhen(S previous, S current) => !previous.isListen && current.isActive && current.isListen;
 
   bool listenWhenError(S previous, S current) => previous is! BaseErrorLoadingState && current is BaseErrorLoadingState;
 
@@ -31,7 +31,6 @@ abstract base class BaseController<B extends StateStreamable<S>, S extends BaseS
 
   Future<void> onListenError(BuildContext context, S state) async {
     if (state is BaseErrorLoadingState && state.error.isTypeDialog) {
-      debugPrint('ERROR');
       await context.showDialog(
         title: state.error.title,
         content: state.error.content,

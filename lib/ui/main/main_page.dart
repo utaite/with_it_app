@@ -51,7 +51,9 @@ final class MainPage extends StatelessWidget {
                 return PlatformScaffold(
                   body: BlocSelector<MainBloc, MainState, GlobalException>(
                     selector: (state) => state is MainErrorState ? state.error : GlobalException.empty(),
-                    builder: (context, error) => Text(error.title),
+                    builder: (context, error) => Center(
+                      child: Text(error.title),
+                    ),
                   ),
                 );
               }

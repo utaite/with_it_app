@@ -1,20 +1,28 @@
 import 'package:with_it/base/base.dart';
-import 'package:with_it/ui/main/fragment/planner/model/main_planner_model.dart';
+import 'package:with_it/messages/planner.pb.dart';
+import 'package:with_it/ui/main/fragment/planner/request/main_planner_request.dart';
 
-base class MainPlannerState extends BaseModel with BaseState, BaseUntilPopState {
+base class MainPlannerState extends BaseModel with BaseState, BaseLoadingState, BaseUntilPopState {
   const MainPlannerState({
-    required this.model,
+    required this.request,
+    required this.plannerRead,
+    required this.isLoading,
     required this.isUntilPop,
   });
 
   factory MainPlannerState.empty() => _empty;
 
-  final MainPlannerModel model;
+  final MainPlannerRequest request;
+  final PlannerReadResponse plannerRead;
+  @override
+  final bool isLoading;
   @override
   final bool isUntilPop;
 
   static final MainPlannerState _empty = MainPlannerState(
-    model: MainPlannerModel.empty(),
+    request: MainPlannerRequest.empty(),
+    plannerRead: PlannerReadResponse.create(),
+    isLoading: false,
     isUntilPop: false,
   );
 
@@ -24,14 +32,18 @@ base class MainPlannerState extends BaseModel with BaseState, BaseUntilPopState 
   @override
   MainPlannerState copyWith({
     MainPlannerState? state,
-    MainPlannerModel? model,
+    MainPlannerRequest? request,
+    PlannerReadResponse? plannerRead,
+    bool? isLoading,
     bool? isUntilPop,
   }) =>
       MainPlannerState(
-        model: model ?? state?.model ?? this.model,
+        request: request ?? state?.request ?? this.request,
+        plannerRead: plannerRead ?? state?.plannerRead ?? this.plannerRead,
+        isLoading: isLoading ?? this.isLoading,
         isUntilPop: isUntilPop ?? this.isUntilPop,
       );
 
   @override
-  List<Object?> get props => [model, isUntilPop];
+  List<Object?> get props => [request, plannerRead, isLoading, isUntilPop];
 }
