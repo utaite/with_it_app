@@ -215,7 +215,7 @@ final class MainPlannerFragment extends StatelessWidget {
                                                 ),
                                                 Paddings.width16,
                                                 Text(
-                                                  '${100}%',
+                                                  '${y.rate}%',
                                                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                                                         color: Resource.colorBlack,
                                                       ),

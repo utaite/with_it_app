@@ -15,7 +15,7 @@ final class Values {
   static const double radiusTextValue = 8;
   static const double radiusCardSmallValue = 12;
   static const double radiusTabValue = 12;
-  static const double radiusGraphValue = 8;
+  static const double radiusGraphValue = 6;
 
   static const Duration weeks = Duration(days: 7);
   static const Duration days = Duration(days: 1);

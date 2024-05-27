@@ -33,4 +33,5 @@ message PlannerReadResponseSubject {
 message PlannerReadResponsePlan {
   uint64 id = 1;
   string detail = 2;
+  uint64 rate = 3;
 }
